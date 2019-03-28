@@ -9,6 +9,27 @@
 </head>
 
 <body>
+
+    <script type="text/javascript">
+
+        const global = {}
+
+        global.calculateForm = document.querySelector('#calculate');
+        global.displayValueElement = document.querySelector('#display_value');
+        global.displayMessageElement = document.querySelector('#display_message');
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            global.calculateForm.addEventListener('submit', event => {
+                event.preventDefault();
+                    calculateBMI()
+                        .then(person => {
+                            global.displayValueElement.innerHTML = `Your BMI is ${person.bmiValue}`;
+                        global.displayMessageElement.innerHTML = `and you are ${person.bmiMessage}`;
+                    })
+            })
+        });
+
+
     <form id="calculate">
         <div id="metric-inputs">
             <input type="text" id="weight-in-kgs" placeholder="Weight">

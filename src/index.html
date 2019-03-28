@@ -29,6 +29,20 @@
             })
         });
 
+        const calculateBMI = () => {
+            return new Promise(resolve => {
+                let w = parseFloat(document.getElementById('weight-in-kgs').value);
+                let h = parseFloat(document.getElementById('height-in-cm').value);
+                let person = new Person({
+                    weight: w,
+                    height: h,
+                });
+                person.calculate_bmi();
+                resolve(person);
+            })
+        };
+</script>
+
 
     <form id="calculate">
         <div id="metric-inputs">
